@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script>
+    (async function will_fail()
+    {
+        const instance = axios.create({baseURL: window.location.href});
+        const obj = new Blob([]);
+        const obj_url = URL.createObjectURL(obj);
+        const response = await instance.get('/index.html');
+        console.log(response.data);
+
+        const obj_response = await instance.get(obj_url);
+        console.log(obj_response.data);
+    })();
+
+    (async function will_not_fail()
+    {
+        const obj = new Blob([]);
+        const obj_url = URL.createObjectURL(obj);
+        const response = await axios.get('/index.html');
+        console.log(response.data);
+
+        const obj_response = await axios.get(obj_url);
+        console.log(obj_response.data);
+    })();
+
+</script>
+</html>

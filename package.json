@@ -1,0 +1,13 @@
+{
+  "name": "axios-test",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "serve public -l 1234"
+  },
+  "dependencies": {
+    "axios": "^0.24.0",
+    "serve": "^13.0.2"
+  }
+}
